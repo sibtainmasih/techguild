@@ -78,6 +78,8 @@ Content
 11259008
 ```
 
+**Note:** Small integer objects in a range of `-5` to `256` are always pre-allocated during initialization. Because Python integers are immutable, we can use them as singletons. Every time you need to create small integer, instead of creating new object Python just points to already allocated one. Thereby it saves a lot of space and computation for commonly-used integers. [Click Here for Reference.](https://rushter.com/blog/python-integer-implementation/)
+
 ### Writing first Python program
 
 **Q.** Write a program to ask user for name and print a greeting message?

@@ -23,6 +23,14 @@ Content
 <class 'float'>
 ```
 
+**What's the maximum integer size?** There is no size restriction in Python. Max size depends on system.
+
+```python
+>>> import sys
+>>> sys.maxsize
+9223372036854775807
+```
+
 #### Arithmetic Operators
 
 ```python

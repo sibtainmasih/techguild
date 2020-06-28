@@ -333,6 +333,23 @@ If I also want to copy all the mutable objects within a list, then I need to `de
 [1, 2, ['A', 'B', 'C'], 3]
 ```
 
+FAQ
+---
+
+**Q1.** How to get count of references to an object?
+
+**A.** [Click Here](https://stackoverflow.com/questions/510406/is-there-a-way-to-get-the-current-ref-count-of-an-object-in-python)
+
+```python
+>>> a = [1,2]
+>>> b=a
+
+# There reference count is 1 higher because of temp reference.
+>>> import sys
+>>> sys.getrefcount(a)
+3
+```
+
 Homework
 --------
 
