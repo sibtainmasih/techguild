@@ -126,9 +126,9 @@ while num<=10:
 ```python
 num=1
 while num<=10:
-    print(f"Square of {num} = {num**2}")
     if num**2>75:
         break
+    print(f"Square of {num} = {num**2}")    
     num+=1
 
 # Output 
@@ -140,7 +140,6 @@ Square of 5 = 25
 Square of 6 = 36
 Square of 7 = 49
 Square of 8 = 64
-Square of 9 = 81
 ```
 
 * `continue` statement is used to jump to next pass of the loop.
