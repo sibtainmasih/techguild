@@ -444,6 +444,16 @@ Homework
 	***    ***
 	**      **
 	*        *
+	```
+
+	E.
+
+	```
+	**********
+	****  ****
+	***    ***
+	**      **
+	*        *
 	**      **
 	***    ***
 	****  ****
@@ -462,11 +472,12 @@ x,y = y, x+y
 5. Write a program to take 10 integer values input from user and store them in a list. 
 	
 	1. Check if all the elements in the list are same.
-	2. Create a new list with elements at even index.
+	2. Create a new list with elements at even index positions.
 	3. Find sum, avg, max and min of the list.
 	4. Iterate the list and print cubes of numbers divisible by 5.
 	5. Iterate the list and print sum of current and previous number.
-	6. Count and print inversion pairs in the list. Hint: [Reference](https://www.geeksforgeeks.org/counting-inversions/) 
+	6. Count numbers in the list divisible by 15.
+	7. Count and print inversion pairs in the list. Two elements `a[i]` and `a[j]` form an inversion `if a[i] > a[j]` and `i < j`. **Hint:** [Click Here for Details](https://www.geeksforgeeks.org/counting-inversions/) 
 
 6. Write a program to take input an integer value (k) from user. Find m such that `m * (m-1)/2 <= k`?
 
@@ -488,17 +499,19 @@ country_ranks = [ ('India', 12), ('USA', 2), ('Bangladesh', 50), ('UK', 5), ('Ch
 
 9. Write a program to take a sentence input from user.	Print list of words in the sentence excluding frequently occuring words `( 'in', 'is, 'the', 'a', 'an' )`.
 
-10. I got a separate list of student names and their score in Mathematics as follows.
+10. Given two tuples with student names and their score in Mathematics as follows.
 
 ```python
-names = [ 'Alice', 'Bob', 'Charlie', 'John' ]
-math_score = [ 81, 92, 70, 64 ]
+names = 'Alice', 'Bob', 'Charlie', 'John' 
+math_score = 81, 92, 70, 64 
 ```
-
-A. Create a list of tuples as follows.
-
+10.1. Create a list of tuples as follows.
 ```python
 students = [ (81, 'Alice'), (92, 'Bob'), (70, 'Charlie'), (64, 'John') ]
 ```
+10.2. Sort list of students in descending order of score.
 
-B. Sort list of students in descending order of score.
+11. Write a program to take a number `n` input from user and -
+	1. check if `n` is prime or composite.
+	2. Print first `n` numbers in fibonanci series.
+	3. Calcualte `n!`

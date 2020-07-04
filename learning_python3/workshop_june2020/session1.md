@@ -247,8 +247,15 @@ Home Work
 1. Write a program to take a sentence input from user and check if it is **palindrome**?
 2. Write a program to take a character input from user and check it is vowel or consontant?
 3. Write a program to take 2 numbers input from user and print their sum and product?
+4. Count of digits in a number.
 
-
+```python
+>>> from math import factorial as fac
+>>> fac(100)
+93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+>>> len(str(fac(100)))
+158
+```
 
 
 
