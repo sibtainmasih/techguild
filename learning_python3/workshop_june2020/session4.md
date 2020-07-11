@@ -478,7 +478,7 @@ x,y = y, x+y
 	6. Count numbers in the list divisible by 15.
 	7. Count and print inversion pairs in the list. Two elements `a[i]` and `a[j]` form an inversion `if a[i] > a[j]` and `i < j`. **Hint:** [Click Here for Details](https://www.geeksforgeeks.org/counting-inversions/) 
 
-6. Write a program to take input an integer value (k) from user. Find m such that `m * (m-1)/2 <= k`?
+6. Write a program to take input an integer value (k) from user. Find m such that `m * (m-1)/2 <= k`? [Click for Hint/Solution](./value_of_m.py)
 
 7. Write a program to flatten a list of tuples. E.g.
 
@@ -489,7 +489,7 @@ l1 = [ (1, 2), (3, 4), (5, 6) ]
 # output
 [1, 2, 3, 4, 5, 6]
 ```
-
+i
 8. Following is the list of countries with their global ranking. Sort them in descending order of their rank.
 
 ```python
