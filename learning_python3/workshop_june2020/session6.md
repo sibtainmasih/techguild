@@ -373,4 +373,4 @@ Homework
 --------
 
 1. Write a function to check if a number is prime or composite.
-
+2. Write a program that takes `**kwargs` as argument and print the values in the lexical order of the keys.
