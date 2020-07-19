@@ -260,7 +260,7 @@ $ python3 ehe.py 10
 Wide net to catch all the exceptions except ValueError. IndexError('list index out of range')
 Finally - Execute in any scenario.
 Program terminated gracefully.
-```the o
+```
 	
 Homework
 --------
