@@ -1,8 +1,6 @@
 
 
-def banner(msg, symbol="#"):
-    line = len(msg) * symbol
-    print(line)
+def banner(msg, symbol="-"):
+    line = symbol * 30
     print(msg)
     print(line)
-    print()
