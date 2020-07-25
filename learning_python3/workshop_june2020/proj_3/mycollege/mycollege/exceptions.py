@@ -1,3 +1,2 @@
-
 class IntegrityError(Exception):
     pass

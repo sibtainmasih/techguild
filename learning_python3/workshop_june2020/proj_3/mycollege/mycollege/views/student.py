@@ -1,6 +1,7 @@
 from mycollege.controllers import student
 from .utils import banner
 
+
 def add(stud_id, name, age, subjects):
     is_added = student.admit(stud_id, name, age, subjects)
     if is_added:
