@@ -131,6 +131,18 @@ apt-get install python3-venv
 
 ### Create Virtual Environment & Install Packages
 
+If you need packages which are not part of Python standard library then program throws `ModuleNotFoundError`.
+
+```unix
+$ python3 proj_3/tabulate_example.py 
+Traceback (most recent call last):
+  File "proj_3/tabulate_example.py", line 4, in <module>
+    from tabulate import tabulate
+ModuleNotFoundError: No module named 'tabulate'
+```
+
+Following are steps to create a virtual environment and install thrid party Python packages.
+
 1. Create a virtual (sandbox) environment.
 
 ```unix
@@ -146,13 +158,56 @@ $ . ~/.pyvenv/techguild/bin/activate
 (techguild) sibtain@sibtain-HP-Compaq:/tmp$
 ```
 
-3. Install a package
+3. Install a package using pip
+
+PyPI = Python Package Index 
+Pip = "Pip Installs Packages" or "Pip Installs Python". Alternatively, pip stands for "preferred installer program".
 
 ```unix
 $ pip install flask
 ```
 
-4. Deactivate a virtual environment
+To learn more about pip commands [Click Here](https://dzone.com/articles/most-important-quotpipquot-commands-for-a-python-d)
+
+```unix
+# To search a package
+$ pip search tabulate
+
+# To view details of installed package
+$ pip show tabulate
+
+# To install a package
+$ pip install tabulate
+
+# To upgrade a package
+$ pip install setuptools --upgrade
+
+# To uninstall
+$ pip uninstall tabulate
+
+# To list installed packages
+$ pip list
+
+# To list outdated packages
+$ pip list -o
+
+# To list packages which are uptodate
+$ pip list -u
+
+# To store all the installed dependencies in requirements.txt
+$ pip freeze > requirements.txt
+ 
+# Then you can install all the dependencies in another environment
+$ pip install -r requirements.txt
+```
+
+4. Execute the program. E.g. [tabulate_example.py](./proj_3/tabulate_example.py) 
+
+```
+$ python3 proj_3/tabulate_example.py
+```
+
+5. Deactivate a virtual environment
 
 ```unix
 $ deactivate
@@ -170,12 +225,14 @@ $ pylint my_proj/
 2. Black - Opinionated code formating. (Some one called it #BeautyParlour for code)
 
 ```unix
+$ pip install black
 $ black my_proj/
 ```
 
 3. Bandit - Security Vulenrabilities
 
 ```unix
+$ pip install bandit
 $ bandit -r my_proj/
 ```
 	
