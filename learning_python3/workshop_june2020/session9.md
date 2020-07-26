@@ -1,6 +1,6 @@
 # Session 9
 
-**Date**: 25-July-2020
+**Date**: 25,26-July-2020
 
 Content
 -------
@@ -42,6 +42,8 @@ def _save(student_obj):
 ## Python Debugger (pdb)
 
 [Click Here](https://www.youtube.com/watch?v=5AYIe-3cD-s) for a PyCon video on pdb.
+
+The code used to explain pdb - [debugexample.py](./proj_3/debugexample.py)
 
 * Add `breakpoint()` to the code. (Don't check-in code with breakpoints)
 
@@ -117,8 +119,70 @@ Breakpoint 1 at /home/sibtain/work/techguild/learning_python3/workshop_june2020/
 * pdb shows `student.py(4)add()` as it's current position whiich is in the form `module(line_number)fn_name()`.
 
 * Don't leave `breakpoint()` in code when you check-in. **Tip:** Use pre-commit hook in git to enforce this.	
+
+## Installing External Packages
+
+One time setup on Ubuntu -
+
+```unix
+sudo apt install python3-pip
+apt-get install python3-venv
+```
+
+### Create Virtual Environment & Install Packages
+
+1. Create a virtual (sandbox) environment.
+
+```unix
+$ python3 -m venv ~/.pyvenv/techguild
+```
+
+2. Activate a virtual environment
+
+```unix
+$ . ~/.pyvenv/techguild/bin/activate
+
+# Below prompt indicates "techguild" is the active virtual environment.
+(techguild) sibtain@sibtain-HP-Compaq:/tmp$
+```
+
+3. Install a package
+
+```unix
+$ pip install flask
+```
+
+4. Deactivate a virtual environment
+
+```unix
+$ deactivate
+```
+
+## Python Powerful Tools
+
+1. Pylint - Python code linter
+
+```unix
+$ pip install pylint
+$ pylint my_proj/
+```
+
+2. Black - Opinionated code formating. (Some one called it #BeautyParlour for code)
+
+```unix
+$ black my_proj/
+```
+
+3. Bandit - Security Vulenrabilities
+
+```unix
+$ bandit -r my_proj/
+```
 	
 Homework
 --------
 
 1. Play with **pdb**.
+2. Learn about different options **pip** command supports. E.g. search, list, freeze.
+3. Learn about different configuration options for **pylint**, **black** and **bandit**.
+4. Work on [Code Refactoring Examples](./refactor_exercises).
