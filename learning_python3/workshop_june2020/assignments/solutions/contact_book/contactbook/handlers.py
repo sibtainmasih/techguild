@@ -1,7 +1,7 @@
 import logging
 from tabulate import tabulate
 
-from .models import setup_database, save_contact, get_contacts
+from .models import setup_database, save_contact, get_contacts, update_contacts
 
 logger = logging.getLogger(__name__)
 
@@ -31,15 +31,19 @@ def add_contact(arguments):
     logger.debug(f"New record id = {record_id}")
 
 
-def update_contacts(arguments):
-    print("update_contacts invoked")
-    print(arguments)
-    # raise NotImplementedError("Implement Update Functionality")
+def modify_contacts(arguments):
+    update_contacts(
+        arguments.search_field,
+        arguments.search_field_value,
+        arguments.update_field,
+        arguments.new_value,
+    )
+    logger.info("Contact(s) updated successfully.")
 
 
 def search_contacts(arguments):
-    records = get_contacts(arguments.search_field, arguments.search_field_value)    
-    print(tabulate(records))
+    records = get_contacts(arguments.search_field, arguments.search_field_value)
+    print(tabulate(records, headers=['Name', 'Address', 'City', 'Phone', 'Email', 'Create Date', 'Last Modified', 'Notes']))
 
 
 def delete_contacts(arguments):

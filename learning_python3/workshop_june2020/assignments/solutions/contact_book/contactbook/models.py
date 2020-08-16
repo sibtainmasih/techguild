@@ -34,13 +34,13 @@ __CLIENT_CONTACT_QUERYS = {
     """,
     "update": """
     UPDATE ClientContact 
-    SET {update_column_name}='{new_value}' 
-    WHERE {filer_column_name}='{filter_column_value}'
+    SET {update_column_name}='{new_value}', last_modified_date=datetime('now') 
+    WHERE {filter_column_name}='{filter_column_value}'
     """,
     "soft_delete": """
     UPDATE ClientContact
     SET is_active=0
-    WHERE {filer_column_name}='{filter_column_value}'
+    WHERE {filter_column_name}='{filter_column_value}'
     """,
     "delete": """
     DELETE FROM ClientContact 
@@ -77,6 +77,9 @@ def setup_database():
 
 
 def save_contact(name, address, city, phone, email):
+    """
+    Saves contact into the database.
+    """
     insert_sql = __CLIENT_CONTACT_QUERYS["insert"].format(
         name=name, address=address, city=city, phone=phone, email=email
     )
@@ -87,13 +90,33 @@ def save_contact(name, address, city, phone, email):
     return cur.lastrowid
 
 
-def update_contact(filter_column_name, filter_column_value):
-    pass
+def update_contacts(
+    filter_column_name, filter_column_value, update_column_name, new_value
+):
+    update_sql = __CLIENT_CONTACT_QUERYS["update"].format(
+        update_column_name=update_column_name,
+        new_value=new_value,
+        filter_column_name=filter_column_name,
+        filter_column_value=filter_column_value,
+    )
+    conn = __get_connection()
+    cur = conn.cursor()
+    cur.execute(update_sql)
+    conn.commit()
+    logger.debug(
+        f"Record(s) updated, {update_column_name} is set to {new_value} for {filter_column_name}={filter_column_value}"
+    )
+    conn.close()
 
 
 def get_contacts(filter_column_name, filter_column_value):
-    sql =  __CLIENT_CONTACT_QUERYS["select"].format(filter_column_name=filter_column_name, filter_column_value=filter_column_value)
+    """
+    Fetches contacts from databses as per the filter crieteria.
+    """
+    select_sql = __CLIENT_CONTACT_QUERYS["select"].format(
+        filter_column_name=filter_column_name, filter_column_value=filter_column_value
+    )
     conn = __get_connection()
     cur = conn.cursor()
-    cur.execute(sql)
+    cur.execute(select_sql)
     return cur.fetchall()
