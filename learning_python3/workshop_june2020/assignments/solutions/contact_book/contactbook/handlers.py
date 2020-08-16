@@ -1,4 +1,5 @@
 import logging
+from tabulate import tabulate
 
 from .models import setup_database, save_contact, get_contacts
 
@@ -37,7 +38,8 @@ def update_contacts(arguments):
 
 
 def search_contacts(arguments):
-    get_contacts(arguments.search_field, arguments.search_field_value)
+    records = get_contacts(arguments.search_field, arguments.search_field_value)    
+    print(tabulate(records))
 
 
 def delete_contacts(arguments):

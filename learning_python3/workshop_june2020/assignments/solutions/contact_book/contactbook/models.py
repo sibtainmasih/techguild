@@ -28,9 +28,9 @@ __CLIENT_CONTACT_QUERYS = {
     ('{name}', '{address}', '{city}', '{phone}', '{email}', datetime('now'), datetime('now'), 1)
     """,
     "select": """
-    SELECT name, address, city, phone, email
+    SELECT name, address, city, phone, email, create_date, last_modified_date, notes
     FROM ClientContact
-    WHERE {filer_column_name}='{filter_column_value}' AND is_active=1
+    WHERE {filter_column_name}='{filter_column_value}' AND is_active=1
     """,
     "update": """
     UPDATE ClientContact 
@@ -92,11 +92,8 @@ def update_contact(filter_column_name, filter_column_value):
 
 
 def get_contacts(filter_column_name, filter_column_value):
+    sql =  __CLIENT_CONTACT_QUERYS["select"].format(filter_column_name=filter_column_name, filter_column_value=filter_column_value)
     conn = __get_connection()
     cur = conn.cursor()
-    cur.execute("SELECT * FROM tasks")
-
-    rows = cur.fetchall()
-
-    for row in rows:
-        print(row)
+    cur.execute(sql)
+    return cur.fetchall()
